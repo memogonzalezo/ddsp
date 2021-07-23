@@ -593,7 +593,7 @@ def upsample_with_windows(inputs: tf.Tensor,
   if add_endpoint:
     inputs = tf.concat([inputs, inputs[:, -1:, :]], axis=1)
 
-  n_frames = int(inputs.shape[1])
+  n_frames = int(tf.shape(inputs)[1])
   n_intervals = (n_frames - 1)
 
   if n_frames >= n_timesteps:
